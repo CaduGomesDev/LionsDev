@@ -7,12 +7,12 @@ const rl = readline.createInterface({
 
 let funcionarios = [];
 
-// função de input
+
 function perguntar(texto) {
     return new Promise(resolve => rl.question(texto, resp => resolve(resp)));
 }
 
-// MENU
+
 async function menu() {
     console.log("\n=== MENU FUNCIONÁRIOS ===");
     console.log("1 - Cadastrar");
@@ -26,7 +26,7 @@ async function menu() {
     return await perguntar("Escolha: ");
 }
 
-// CADASTRAR
+
 async function cadastrar() {
     let nome = await perguntar("Nome: ");
     let cargo = await perguntar("Cargo: ");
@@ -42,7 +42,7 @@ async function cadastrar() {
     console.log("Funcionário cadastrado!");
 }
 
-// LISTAR
+
 function listar() {
     if (funcionarios.length === 0) {
         console.log("Nenhum funcionário cadastrado.");
@@ -54,7 +54,7 @@ function listar() {
     });
 }
 
-// MAIOR SALÁRIO
+
 function maiorSalario() {
     if (funcionarios.length === 0) return console.log("Lista vazia.");
 
@@ -62,7 +62,7 @@ function maiorSalario() {
     console.log("Maior salário:", maior);
 }
 
-// MENOR SALÁRIO
+
 function menorSalario() {
     if (funcionarios.length === 0) return console.log("Lista vazia.");
 
@@ -70,7 +70,7 @@ function menorSalario() {
     console.log("Menor salário:", menor);
 }
 
-// EDITAR
+
 async function editar() {
     listar();
     let i = Number(await perguntar("Índice: "));
@@ -94,7 +94,7 @@ async function editar() {
     console.log("Atualizado com sucesso!");
 }
 
-// EXCLUIR
+
 async function excluir() {
     listar();
     let i = Number(await perguntar("Índice para excluir: "));
@@ -108,7 +108,7 @@ async function excluir() {
     console.log("Funcionário removido!");
 }
 
-// EXECUÇÃO
+
 async function main() {
     while (true) {
         let op = await menu();

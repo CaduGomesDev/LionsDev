@@ -11,7 +11,7 @@ function perguntar(texto) {
     return new Promise(resolve => rl.question(texto, resp => resolve(resp)));
 }
 
-// MENU
+
 async function menu() {
     console.log("\n=== MENU LIVROS ===");
     console.log("1 - Cadastrar");
@@ -23,7 +23,7 @@ async function menu() {
     return await perguntar("Escolha: ");
 }
 
-// CADASTRAR
+
 async function cadastrar() {
     let titulo = await perguntar("Título: ");
     let autor = await perguntar("Autor: ");
@@ -39,7 +39,7 @@ async function cadastrar() {
     console.log("Livro cadastrado!");
 }
 
-// LISTAR
+
 function listar() {
     if (livros.length === 0) {
         console.log("Nenhum livro cadastrado.");
@@ -51,7 +51,7 @@ function listar() {
     });
 }
 
-// EDITAR
+
 async function editar() {
     listar();
     let i = Number(await perguntar("Índice: "));
@@ -75,7 +75,7 @@ async function editar() {
     console.log("Atualizado!");
 }
 
-// EXCLUIR
+
 async function excluir() {
     listar();
     let i = Number(await perguntar("Índice: "));
@@ -89,7 +89,7 @@ async function excluir() {
     console.log("Removido!");
 }
 
-// EXECUÇÃO
+
 async function main() {
     while (true) {
         let op = await menu();
